@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiHome, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiCompass, FiTablet } from 'react-icons/fi';
+import { FiHome, FiEdit, FiBookOpen, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiCompass, FiTablet } from 'react-icons/fi';
 import { BsFillCalendarDateFill, BsMenuAppFill, BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
@@ -520,6 +520,10 @@ export const links = [
         name: 'To do List',
         icon: <FiEdit />,
       },
+      {
+        name: 'Editor',
+        icon: <FiBookOpen />,
+      },
     ],
   },
 ];
@@ -807,8 +811,8 @@ export const themeColors = [
     color: '#1E4DB7',
   },
   {
-    color: '#FB9678',
     name: 'orange-theme',
+    color: '#FB9678',    
   },
 ];
 

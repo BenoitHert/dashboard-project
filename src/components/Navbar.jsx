@@ -21,9 +21,7 @@ const NavButton = ({ title, customFunction,
       hover:bg-light-gray">
         <span style={{ background: dotColor}}
         className="absolute inline-flex rounded-full
-        h-2 w-2 right-2 top-2">
-
-        </span>
+        h-2 w-2 right-2 top-2"/>
         {icon}
       </button>
     </TooltipComponent>
@@ -32,8 +30,29 @@ const NavButton = ({ title, customFunction,
 
 const Navbar = () => {
     const { activeMenu, setActiveMenu, 
-      isClicked, setIsClicked, handleClick } = useStateContext();
+      isClicked, setIsClicked, handleClick,
+      screenSize, setScreenSize } = useStateContext();
     
+      // Resize function for size modification detection
+      useEffect(() => {
+        const handleResize = () => setScreenSize(window.innerWidth);
+
+        window.addEventListener('resize', handleResize)
+
+        handleResize();
+
+        return() => window.removeEventListener('resize', handleResize);
+      }, []);
+
+      // Hide Menu when screenSize is <= 900 function
+      useEffect(() => {
+        if(screenSize <= 900) { 
+          setActiveMenu(false);
+        } else {
+          setActiveMenu(true);
+        }
+      },[screenSize]);
+
   return (
     <div className='flex justify-between p-2 md:mx-6
     relative'>

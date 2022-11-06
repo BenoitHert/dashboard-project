@@ -1,10 +1,11 @@
 // apps
 
 export {default as TodoList} from './TodoList';
-export {default as Agenda} from './Agenda';
+export {default as AgendaBook} from './AgendaBook';
 export {default as Calendar} from './Calendar';
 export {default as ShoppingList} from './ShoppingList';
 export {default as Kanban} from './Kanban';
+export {default as Editor} from './Editor';
 
 
 // Dashboard

@@ -4,7 +4,7 @@ import {FiSettings} from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import {Button, Navbar, Footer, SideBar, ThemeSettings, Sidebar, UserProfile } from './components';
-import {Menus, AboutPage, Agenda, Calendar, Dashboard, Kanban, ShoppingList, TodoList } from './pages';
+import {Menus, AboutPage, AgendaBook, Calendar, Dashboard, Kanban, ShoppingList, TodoList, Editor } from './pages';
 
 import { useStateContext } from './contexts/ContextProvider';
 
@@ -21,6 +21,8 @@ const App = () => {
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
           <div className='fixed right-4 bottom-4' style={{ zIndex: '1000'}}>
+
+            {/* SETTINGS BUTTON  */}
             <TooltipComponent content="Settings" postiion="Top">
               <button type='button'
               className='text-3xl p-3
@@ -31,7 +33,10 @@ const App = () => {
                 <FiSettings/>
               </button>
             </TooltipComponent>
+
+            
           </div>
+            {/* SIDEBAR */}
           {activeMenu? (
             <div className='w-72 fixed sidebar 
             dark:bg-secondary-dark-bg bg-white' >
@@ -42,6 +47,8 @@ const App = () => {
               <Sidebar />
               </div>
           )}
+
+          {/* NAV BAR */}
           <div className={
             `dark:bg-main-bg bg-main-bg min-h-screen w-full 
             ${activeMenu? 'md:ml-72' : 'flex-2'}`
@@ -50,8 +57,12 @@ const App = () => {
                dark:bg-main-dark-bg navbar w-full'>
                 <Navbar />
               </div>
-          </div>
+          
             <div>
+              <ThemeSettings />
+
+
+              {/* ROUTES */}
               <Routes>
                 {/*  DASHBOARD */}
               <Route path='/' element={<Dashboard/>}/>
@@ -65,10 +76,12 @@ const App = () => {
               <Route path='/todolist' element={<TodoList/>}/>
               <Route path='/shoppinglist' element={<ShoppingList/>}/>
               <Route path='/calendar' element={<Calendar/>}/>
-              <Route path='/agenda' element={<Agenda/>}/>
+              <Route path='/AgendaBook' element={<AgendaBook/>}/>
               <Route path='/kanban' element={<Kanban/>}/>
+              <Route path='/editor' element={<Editor/>}/>
               </Routes>
             </div>
+          </div>
         </div>
       </BrowserRouter>
     </div>
